@@ -4,3 +4,4 @@
 
 - Nathan Whitney
 - Austin Norquist
+- Jorge Castaneda
