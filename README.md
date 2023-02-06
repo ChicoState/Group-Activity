@@ -3,3 +3,4 @@
 ## Team Members
 
 - Nathan Whitney
+- Austin Norquist
