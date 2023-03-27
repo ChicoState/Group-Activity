@@ -1,6 +1,14 @@
 <html>
 
 <head>
+<title>Font Awesome Icons</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123745015-1"></script>
@@ -57,6 +65,13 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+.right {
+  float: right;
+  width: 300px;
+  border: 3px solid #73AD21;
+  padding: 10px;
+}
+
 .sidebar {
   height: 100%;
   width: 0;
@@ -105,6 +120,101 @@ body {
   background-color: #444;
 }
 
+.eventbtn {
+  background-color: white;
+  color:dodgerblue;
+  border: none;
+  padding: 0px 0px;
+  font-size: 20px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: 195px;
+  margin-right: 175px;
+  top: 0;
+  right: 0;
+}
+
+.eventbtn:hover {
+  color:royalblue;
+}
+
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.form-popup {
+  display: none;
+  width: 50%;
+  height: 50vh;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #f1f1f1;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 75%;
+  padding: 10px;
+  background-color: white;
+}
+
+.form-container input[type=text], .form-container input[type=date], 
+.form-container input[type=time]{
+  width: 135%;
+  padding: 10px;
+  margin: 5px 0 10px 0;
+  border: black;
+  background: whitesmoke;
+}
+
+.form-container input[type=text]:focus, .form-container input[type=date]:focus,
+.form-container input[type=time]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 0px 0px;
+  border: none;
+  cursor: pointer;
+  width: 40%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: dodgerblue;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: .5;
+}
+
+.icon {
+  color: dodgerblue;
+}
+
+.icon:hover {
+  color: royalblue;
+}
+
+.w3-button {
+  color: dodgerblue;
+  padding: 0px 0px;
+  font-size:xx-large;
+}
+
 #main {
   transition: margin-left .5s;
   padding: 16px;
@@ -124,39 +234,69 @@ body {
 
 <body class="container">
     <div id="jtron" class="jumbotron">
-        <h4> <strong> CSCI 430 Potential Project Design</strong></h4>
+        <h4> <strong> GROUP ACTIVITY </strong></h4>
     </div>
-    
-    <div>
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="#">Friends</a>
-            <a href="#">Add Friends</a>
-            <a href="#">Create new event</a>
-            <a href="#">Accept/Decline Invitation(s)</a>
-        </div>
 
-    <div id="main">
-        <h2>Name of our APP here (Group Activity)</h2>
-        <button class="openbtn" onclick="openNav()">☰  Open to Add an Event or respond to an invite </button>  
-        
-        <p></p>
-    </div> 
+    <div>
+        <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+          <button onclick="sidebar_close()" class="w3-bar-item w3-large">Close &times;</button>
+          <a href="#" class="w3-bar-item w3-button">Home</a>
+          <a href="#" class="w3-bar-item w3-button">Friends</a>
+          <a href="#" class="w3-bar-item w3-button">Add Friends</a>
+          <a href="#" class="w3-bar-item w3-button">Settings</a>
+        </div>
+    
+    <button class = "w3-button" onclick = "sidebar_open()">☰</button>
+    <button class = "eventbtn" onclick="event_open()"><i class="fa fa-plus"></i></button>
+
+    <div class="form-popup" id="myForm">
+      <form action="/action_page.php" class="form-container">
+        <h1>Create Event</h1>
+        <label for="event"><b>Event</b></label>
+        <input type="text" placeholder="What would you like to plan?" required>
+
+        <label for="event"><b>Event Date</b></label>
+        <input type="date" required>
+
+        <label for="event"><b>Time</b></label>
+        <input type="time" required>
+
+        <button type="submit" class="btn" onclick="event_close()">Create Event</button>
+        <button type="button" class="btn cancel" onclick="event_close()">Close</button>
+      </form>
+    </div>
 </div>
     
-    <script>
+<script>
 function openNav() {
     $("#jtron").hide(2500);
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
 }
 
 function closeNav() {
     $("#jtron").show(2500);
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+}
+
+function event_open(){
+  document.getElementById("myForm").style.display = "block";
+}
+
+function event_close(){
+  document.getElementById("myForm").style.display = "none";
+}
+
+function sidebar_open() {
+  document.getElementById("mySidebar").style.display = "block";
+}
+  
+function sidebar_close() {
+  document.getElementById("mySidebar").style.display = "none";
 }
 </script>
+
 </body>
 
 </html>
