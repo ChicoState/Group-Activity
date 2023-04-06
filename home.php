@@ -248,7 +248,7 @@ body {
 </head>
 
 <body class="container">
-    <h1 class="text-center"> <strong>Welcome <?php echo $username; ?> </strong> </h1>
+    <h2 class="text-center"> <strong>Welcome <?php echo $username; ?> </strong> </h2>
     <div id="jtron" class="jumbotron">
         <h4> <strong> GROUP ACTIVITY </strong></h4>
     </div>

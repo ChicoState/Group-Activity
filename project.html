@@ -65,6 +65,10 @@ body {
     border-radius: 15px;
 }
 
+.flRight{
+    float: right;
+}
+
 .sidebar {
   height: 100%;
   width: 0;
@@ -132,16 +136,19 @@ body {
 
 <body class="container">
     <div id="jtron" class="jumbotron">
-        <h4> <strong> Group Activity</strong></h4>
+        <h4 class="text-center"> <strong> Group Activity</strong></h4>
     </div>
     
-    <form id="logIn" action = "login.php" method = "post">
-        <p> <input name="uName" id="uName" placeholder="user name" /> </p>
-        <p> <input name="pWord" type="password" placeholder = "password" /> </p>
-       <!-- <input type="submit" class="btnA" placeholder="login" /> -->
-        <button type="submit" class="btnA" name="subBtn">Log In</button>
-    </form>
-    <a href="register.php" class="btnA"> Register </a>
+    <div class="text-center"> 
+        <form id="logIn" action = "login.php" method = "post">
+            <p> <input name="uName" id="uName" placeholder="user name" style="width: 50%; border-radius: 25px;" /> </p>
+            <p> <input name="pWord" type="password" placeholder = "password" style="width: 50%; border-radius: 25px;" /> </p>
+            <!-- <input type="submit" class="btnA" placeholder="login" /> -->
+            <button type="submit" class="btnA" name="subBtn">Log In</button>
+            <a href="register.php" class="btnA flRight"> Register </a>
+        </form>
+    </div>
+    
     
     <!--
     <div>

@@ -1,3 +1,7 @@
+<?php
+    include 'connection.php'; 
+?>
+
 <html>
 
 <head>
@@ -229,6 +233,23 @@ body {
 </style>
 
 <link rel="stylesheet" href="http://www.accountplusfinance.com/css/try.css">
+<script>
+    $(document).ready(function(){
+        
+        $("#pdata").keyup(function(){
+            $("#hideFriend").show(1000);
+            $("#div1").show(1000);
+            var data = document.getElementById("pdata").value;
+        	var url = "sample.php?username=" + data;
+	        $("#div1").load(url);
+	    });
+	    
+	    $("#closebutton").click(function(){
+	        $("#div1").hide(500);
+	        $("#hideFriend").hide(500);
+	    });
+    });
+</script>
 
 </head>
 
@@ -250,16 +271,19 @@ body {
     <button class = "eventbtn" onclick="event_open()"><i class="fa fa-plus"></i></button>
 
     <div class="form-popup" id="friendForm">
-      <form action="/action_page.php" class="form-container">
+      <form action="friends.php" class="form-container">
         <h1>Friend Request</h1>
         <label for="event"><b>Username</b></label>
-        <input type="text" placeholder="What is your friend's Username?" required>
+        <input type="text" style="border-radius: 25px;" id="pdata" name = "friend_inp_field" placeholder="What is your friend's Username?" required />
 
         <button type="submit" class="btn" onclick="event_close()">Send Friend Request</button>
-        <button type="button" class="btn cancel" onclick="event_close()">Close</button>
+        <button type="button" id="closebutton" class="btn cancel" onclick="event_close()">Close</button>
       </form>
     </div>
+    
 
+    <p id="hideFriend" style="display: none;">Friend search results: </p>
+    <div id="div1"> </div>
     <ul>
       <li>Fred Burgerberry</li>
       <li>Anna Tester</li>
