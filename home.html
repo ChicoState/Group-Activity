@@ -6,8 +6,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href='https://unpkg.com/css.gg@2.0.0/icons/css/menu.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="style.css"/>
+<script type="text/javascript" src="script.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="calendarstyle.css">
+<script src="calendar.js" defer></script>
 
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -38,10 +46,7 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
 
-
-
      <title> Group Activity Project Design</title>
-     
    
 <meta property="og:title" content="CSCI 430 project design" />
 <meta property="og:description" content="Project preliminary design" />
@@ -65,156 +70,6 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.right {
-  float: right;
-  width: 300px;
-  border: 3px solid #73AD21;
-  padding: 10px;
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-.eventbtn {
-  background-color: white;
-  color:dodgerblue;
-  border: none;
-  padding: 0px 0px;
-  font-size: 20px;
-  cursor: pointer;
-  position: absolute;
-  margin-top: 195px;
-  margin-right: 175px;
-  top: 0;
-  right: 0;
-}
-
-.eventbtn:hover {
-  color:royalblue;
-}
-
-.open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
-  width: 280px;
-}
-
-.form-popup {
-  display: none;
-  width: 50%;
-  height: 50vh;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid #f1f1f1;
-}
-
-/* Add styles to the form container */
-.form-container {
-  max-width: 75%;
-  padding: 10px;
-  background-color: white;
-}
-
-.form-container input[type=text], .form-container input[type=date], 
-.form-container input[type=time]{
-  width: 135%;
-  padding: 10px;
-  margin: 5px 0 10px 0;
-  border: black;
-  background: whitesmoke;
-}
-
-.form-container input[type=text]:focus, .form-container input[type=date]:focus,
-.form-container input[type=time]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-.form-container .btn {
-  background-color: dodgerblue;
-  color: white;
-  padding: 0px 0px;
-  border: none;
-  cursor: pointer;
-  width: 40%;
-  margin-bottom:10px;
-  opacity: 0.8;
-}
-
-.form-container .cancel {
-  background-color: dodgerblue;
-}
-
-.form-container .btn:hover, .open-button:hover {
-  opacity: .5;
-}
-
-.icon {
-  color: dodgerblue;
-}
-
-.icon:hover {
-  color: royalblue;
-}
-
-.w3-button {
-  color: dodgerblue;
-  padding: 0px 0px;
-  font-size:xx-large;
-}
-
 #main {
   transition: margin-left .5s;
   padding: 16px;
@@ -233,10 +88,10 @@ body {
 </head>
 
 <body class="container">
-    <div id="jtron" class="jumbotron">
+    <div id="header" class="header">
         <h4> <strong> GROUP ACTIVITY </strong></h4>
     </div>
-
+    
     <div>
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
           <button onclick="sidebar_close()" class="w3-bar-item w3-large">Close &times;</button>
@@ -265,37 +120,48 @@ body {
         <button type="button" class="btn cancel" onclick="event_close()">Close</button>
       </form>
     </div>
-</div>
+    <div class="contianer">
+      <div class="calendar">
+        <div class="calendar-header">
+          <span class="month-picker" id="month-picker"> May </span>
+          <div class="year-picker" id="year-picker">
+            <span class="year-change" id="pre-year">
+              <pre><</pre>
+            </span>
+            <span id="year">2020 </span>
+            <span class="year-change" id="next-year">
+              <pre>></pre>
+            </span>
+          </div>
+        </div>
     
-<script>
-function openNav() {
-    $("#jtron").hide(2500);
-    document.getElementById("mySidebar").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
-}
+        <div class="calendar-body">
+          <div class="calendar-week-days">
+            <div>Sun</div>
+            <div>Mon</div>
+            <div>Tue</div>
+            <div>Wed</div>
+            <div>Thu</div>
+            <div>Fri</div>
+            <div>Sat</div>
+          </div>
+          <div class="calendar-days">
+          </div>
+        </div>
+        <div class="calendar-footer">
+        </div>
+        <div class="date-time-formate">
+          <div class="day-text-formate">TODAY</div>
+          <div class="date-time-value">
+            <div class="time-formate">02:51:20</div>
+            <div class="date-formate">23 - july - 2022</div>
+          </div>
+        </div>
+        <div class="month-list"></div>
+      </div>
+</div>
 
-function closeNav() {
-    $("#jtron").show(2500);
-    document.getElementById("mySidebar").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-
-function event_open(){
-  document.getElementById("myForm").style.display = "block";
-}
-
-function event_close(){
-  document.getElementById("myForm").style.display = "none";
-}
-
-function sidebar_open() {
-  document.getElementById("mySidebar").style.display = "block";
-}
-  
-function sidebar_close() {
-  document.getElementById("mySidebar").style.display = "none";
-}
-</script>
+</div>
 
 </body>
 
