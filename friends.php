@@ -1,3 +1,9 @@
+<?php
+session_start();
+$uname = $_SESSION['username']; 
+    include 'connection.php'; 
+?>
+
 <html>
 
 <head>
@@ -209,6 +215,10 @@ body {
   color: royalblue;
 }
 
+.rounded{
+    border: solid black 2px;
+    padding: 20px; 
+}
 .w3-button {
   color: dodgerblue;
   padding: 0px 0px;
@@ -229,6 +239,23 @@ body {
 </style>
 
 <link rel="stylesheet" href="http://www.accountplusfinance.com/css/try.css">
+<script>
+    $(document).ready(function(){
+        
+        $("#pdata").keyup(function(){
+            $("#hideFriend").show(1000);
+            $("#div1").show(1000);
+            var data = document.getElementById("pdata").value;
+        	var url = "sample.php?username=" + data;
+	        $("#div1").load(url);
+	    });
+	    
+	    $("#closebutton").click(function(){
+	        $("#div1").hide(500);
+	        $("#hideFriend").hide(500);
+	    });
+    });
+</script>
 
 </head>
 
@@ -243,29 +270,56 @@ body {
           <a href="http://www.accountplusfinance.com/chico/cins370/home.php" class="w3-bar-item w3-button">Home</a>
           <a href="http://www.accountplusfinance.com/chico/cins370/friends.php" class="w3-bar-item w3-button">Friends</a>
           <a href="#" class="w3-bar-item w3-button">Profile</a>
-          <a href="#" class="w3-bar-item w3-button">Logout</a>
+          <a href="calendar.html" class="w3-bar-item w3-button">View events</a>
+          <a href="exit.php" class="w3-bar-item w3-button">Logout</a>
         </div>
 
     <button class = "w3-button" onclick = "sidebar_open()">☰</button>
     <button class = "eventbtn" onclick="event_open()"><i class="fa fa-plus"></i></button>
 
+        <h4 class="text-center">Your Current Friends</h4>
+        <?php
+            $view_friend = "SELECT freind_user_name from $uname where f_status = 'accepted' ";
+        $results = $con->query($view_friend);
+        if ($results->num_rows > 0) {
+            echo "<div class=\"rounded\"> <ul>";
+            while($row = $results->fetch_assoc()) {
+                echo "<li> <h4> ". $row['freind_user_name']. "</h4> </li>"; 
+            }
+            
+            echo "</ul> </div>";
+            
+        }
+        ?>
+
     <div class="form-popup" id="friendForm">
-      <form action="/action_page.php" class="form-container">
+      <form action="friends.php" class="form-container">
         <h1>Friend Request</h1>
         <label for="event"><b>Username</b></label>
-        <input type="text" placeholder="What is your friend's Username?" required>
+        <input type="text" style="border-radius: 25px;" id="pdata" name = "friend_inp_field" placeholder="What is your friend's Username?" required />
 
-        <button type="submit" class="btn" onclick="event_close()">Send Friend Request</button>
-        <button type="button" class="btn cancel" onclick="event_close()">Close</button>
+      <!--  <button type="submit" class="btn" onclick="event_close()">Send Friend Request</button> -->
+        <button type="button" id="closebutton" class="btn cancel" onclick="event_close()">Close</button>
       </form>
+      
+
+    </div>
+    
+          <p id="hideFriend" style="display: none;">Friend search results: </p>
+        <div id="div1"> </div>
+      <div id="view-friends"> </div>
+      
+
     </div>
 
+
+    <!--
     <ul>
       <li>Fred Burgerberry</li>
       <li>Anna Tester</li>
       <li>Terry Loper</li>
     </ul>
-
+    -->
 </div>
 
 <script>
