@@ -11,6 +11,21 @@
 /*start PHP session */ 
 include 'connection.php';
 
+$sql_noti = "select count(f_status) from $username where f_status = 'not accepted'";
+$result = mysqli_query($con, $sql_noti);
+//if ($result = mysqli_query($con, $sql_noti)) {
+
+    // Return the number of rows in result set
+   $not_counr  = mysqli_num_rows($result);
+   if($not_counr == 0){
+       $not_counr = "No new notifications";
+   }else{
+       $not_counr = "You have new notifications"; 
+   }
+    
+    // Display result
+   // printf("Total rows in this table : ". $not_counr); /* NO NEED TO DISPLAY HERE */ 
+//}
 ?>
 
 <html>
@@ -53,6 +68,8 @@ include 'connection.php';
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!-- in house javascript -->
+<script type="text/javascript" src="/scriptjs/jq.js"> </script>
 
 
      <title> Group Activity Project Design</title>
@@ -248,7 +265,7 @@ body {
 </head>
 
 <body class="container">
-    <h1 class="text-center"> <strong>Welcome <?php echo $username; ?> </strong> </h1>
+    <h2 class="text-center"> <strong>Welcome <?php echo $username; ?> </strong> </h2>
     <div id="jtron" class="jumbotron">
         <h4> <strong> GROUP ACTIVITY </strong></h4>
     </div>
@@ -256,17 +273,22 @@ body {
     <div>
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
           <button onclick="sidebar_close()" class="w3-bar-item w3-large">Close &times;</button>
+          <a class="btn btn-primary" onclick="load_home()"> Notifications <span class="badge badge-light"> <?php echo $not_counr; ?> </span> </a>
           <a href="http://www.accountplusfinance.com/chico/cins370/home.php" class="w3-bar-item w3-button">Home</a>
           <a href="http://www.accountplusfinance.com/chico/cins370/friends.php" class="w3-bar-item w3-button">Friends</a>
           <a href="#" class="w3-bar-item w3-button">Profile</a>
-          <a href="#" class="w3-bar-item w3-button">Logout</a>
+          <a href="calendar.html" class="w3-bar-item w3-button">View events</a>
+          <a href="exit.php" class="w3-bar-item w3-button">Logout</a>
         </div>
+        
+        <div id="div_load_files"> </div>
 
     <button class = "w3-button" onclick = "sidebar_open()">☰</button>
     <button class = "eventbtn" onclick="event_open()"><i class="fa fa-plus"></i></button>
 
     <div class="form-popup" id="myForm">
-      <form action="/action_page.php" class="form-container">
+      <form action="#" class="form-container">
+          
         <h1>Create Event</h1>
         <label for="event"><b>Event</b></label>
         <input type="text" placeholder="What would you like to plan?" required>
@@ -277,10 +299,24 @@ body {
         <label for="event"><b>Time</b></label>
         <input type="time" required>
 
-        <button type="submit" class="btn" onclick="event_close()">Create Event</button>
+        <button type="submit" class="btn" onclick="event_close(); alert('Event created');">Create Event</button>
         <button type="button" class="btn cancel" onclick="event_close()">Close</button>
+        
+    <?php
+        $view_friend = "SELECT freind_user_name from $username where f_status = 'accepted' ";
+       $results = $con->query($view_friend);
+        if ($results->num_rows > 0) {
+           while($row = $results->fetch_assoc()) {
+                echo "<br> <input type=\"radio\" name=\"friend_req_event\">";
+               echo "<label for=\"friend_req_event\">".$row['freind_user_name']. "</label><br>"; 
+            }
+        }
+    ?>
       </form>
+      
+      
     </div>
+    
 </div>
 
 <script>

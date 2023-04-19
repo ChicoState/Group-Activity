@@ -1,10 +1,14 @@
-<?php session_start(); /*start PHP session */?>
+<?php 
+    session_start();
+    include 'connection.php';
+/*start PHP session */
+?>
 <html>
 
 <head>
     
 <?php
-include 'connection.php';
+
 
     if($_POST['uName']){
         $u = $_POST['uName']; 
@@ -19,13 +23,12 @@ include 'connection.php';
             header('Location: home.php');
         }
         else if($result->num_rows == 0){
-            echo "Sorry that username or password is incorrect please try again";
-            // header('Location: .php');
+            header('Location: failed-login.php?msg=failed');
         }
     } 
     
     else{
-        echo "Please go back and login";
+        header('Location: failed-login.php?msg=failed');
     }
   
 ?>
