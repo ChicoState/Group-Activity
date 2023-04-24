@@ -1,0 +1,309 @@
+<html>
+
+<head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123745015-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123745015-1');
+</script>
+
+<!-- JQUERY -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+<meta property="og:title" content="CSCI 430 project design" />
+<meta property="og:description" content="Project preliminary design" />
+<meta property="og:image" content="https://www.msfttechdays.com/wp-content/uploads/2021/07/Software-Development.jpg" />
+
+<!-- twitter cards -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta name="twitter:site" content="@JagpalHoldingsCompany">
+<meta name="twitter:creator" content="@GurpreetJagpal">
+<meta property="twitter:title" content="CSCI 430 project design"/>
+<meta property="twitter:description" content="design for csci 430 project"/>
+<meta property="twitter:image" content="https://www.msfttechdays.com/wp-content/uploads/2021/07/Software-Development.jpg"/>
+
+<link rel="stylesheet" href="http://www.accountplusfinance.com/css/try.css">
+
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    background-color: #24252a;
+  }
+  
+  .logo {
+    margin-right: auto;
+    color:azure;
+  }
+  
+  .nav__links {
+    list-style: none;
+    display: flex;
+  }
+  
+  .nav__links a,
+  .cta,
+  .overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #edf0f1;
+    text-decoration: none;
+  }
+  
+  .nav__links li {
+    padding: 0px 20px;
+  }
+  
+  .nav__links li a {
+    transition: all 0.3s ease 0s;
+  }
+  
+  .nav__links li a:hover {
+    color: #0088a9;
+  }
+  
+  .cta {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: rgba(0, 136, 169, 1);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .cta:hover {
+    background-color: rgba(0, 136, 169, 0.8);
+  }
+  
+  /* Mobile Nav */
+  
+  .menu {
+    display: none;
+  }
+  
+  .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+  }
+  
+  .overlay--active {
+    width: 100%;
+  }
+  
+  .overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .overlay a:hover,
+  .overlay a:focus {
+    color: #0088a9;
+  }
+  .overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+  }
+  
+  @media screen and (max-height: 450px) {
+    .overlay a {
+      font-size: 20px;
+    }
+    .overlay .close {
+      font-size: 40px;
+      top: 15px;
+      right: 35px;
+    }
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+      display: none;
+    }
+    .menu {
+      display: initial;
+    }
+  }
+
+  .form-container {
+    max-width: 75%;
+    padding: 10px;
+    background-color: white;
+}
+  
+  .form-container input[type=text], .form-container input[type=date], 
+  .form-container input[type=time]{
+      width: 135%;
+      padding: 10px;
+      margin: 0px 0 10px 0;
+      border: black;
+      background: whitesmoke;
+  }
+    
+  .form-container input[type=text]:focus, .form-container input[type=date]:focus,
+  .form-container input[type=time]:focus {
+      background-color: #ddd;
+      outline: none;
+  }
+    
+  .form-container .btn {
+      background-color: dodgerblue;
+      color: white;
+      padding: 0px 0px;
+      border: none;
+      cursor: pointer;
+      width: 40%;
+      margin-bottom:10px;
+      opacity: 0.8;
+  }
+    
+  .form-container .cancel {
+      background-color: dodgerblue;
+  }
+    
+  .form-container .btn:hover, .open-button:hover {
+      opacity: .5;
+  }
+    
+  .icon {
+      color: dodgerblue;
+  }
+    
+  .icon:hover {
+      color: royalblue;
+  }
+    
+  .w3-button {
+      color: dodgerblue;
+      padding: 0px 0px;
+      font-size:xx-large;
+  }
+</style>
+
+<body>
+  <header>
+    <a class="logo" href="#">GROUP ACTIVITY</a>
+    <nav>
+        <ul class="nav__links">
+            <li><a href="#">Friends</a></li>
+            <li><a href="#">Invites</a></li>
+            <li><a href="#">Profile</a></li>
+        </ul>
+    </nav>
+    <a class="cta" href="#" onclick="event_open()">Create Event</a>
+    <p class="menu cta">Menu</p>
+  </header>
+  <div id="mobile__menu" class="overlay">
+    <a class="close">&times;</a>
+    <div class="overlay__content">
+        <a href="#">Friends</a>
+        <a href="#">Invites</a>
+        <a href="#">Profile</a>
+    </div>
+  </div>
+  
+  <div class="form-popup" id="myForm">
+    <form action="/action_page.php" class="form-container">
+      <h1>Create Event</h1>
+      <label for="event"><b>Event</b></label>
+      <input type="text" placeholder="What would you like to plan?" required>
+
+      <label for="event"><b>Event Date</b></label>
+      <input type="date" required>
+
+      <label for="event"><b>Time</b></label>
+      <input type="time" required>
+
+      <button type="submit" class="btn" onclick="event_close()">Create Event</button>
+      <button type="button" class="btn cancel" onclick="event_close()">Close</button>
+    </form>
+  </div>
+
+  <div>
+    <iframe src="https://calendar.google.com/calendar/embed?height=800&wkst=1&bgcolor=%23616161&ctz=America%2FLos_Angeles&showCalendars=1&showTz=0&showPrint=0&showDate=1&showNav=1&showTitle=0&showTabs=0&mode=AGENDA&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043" style="border:solid 1px #777" width="420" height="800" frameborder="0" scrolling="no"></iframe>
+    <iframe src="https://calendar.google.com/calendar/embed?height=800&wkst=1&bgcolor=%23616161&ctz=America%2FLos_Angeles&showCalendars=1&showTz=0&showPrint=0&showDate=1&showNav=1&showTitle=0&showTabs=0&mode=MONTH&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%230B8043" style="border:solid 1px #777" width="1010" height="800" frameborder="0" scrolling="no"></iframe>
+  </div>
+
+  <script>
+    const doc = document;
+    const menuOpen = doc.querySelector(".menu");
+    const menuClose = doc.querySelector(".close");
+    const overlay = doc.querySelector(".overlay");
+
+    menuOpen.addEventListener("click", () => {
+      overlay.classList.add("overlay--active");
+    });
+
+    menuClose.addEventListener("click", () => {
+    overlay.classList.remove("overlay--active");
+    });
+
+    function event_open(){
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function event_close(){
+      document.getElementById("myForm").style.display = "none";
+    }
+
+    function friends_open(){
+      document.getElementById("myForm").style.display = "block";
+    }
+
+    function friends_close(){
+      document.getElementById("myForm").style.display = "none";
+    }
+  </script>
+
+</body>
+
+</html>
