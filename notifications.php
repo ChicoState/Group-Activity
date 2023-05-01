@@ -10,13 +10,13 @@ include 'connection.php';
     <div class = "text-center">
     <?php
     echo "<h4>Friend Requests </h4>";
-    //$sql = "SELECT freind_user_name from USERS where user_name LIKE '%$name%' OR first_name LIKE '%$name%' or last_name LIKE '%$name%'";
     $sql = "SELECT freind_user_name from $user_name where f_status = 'not accepted' ";
     $result = $con->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
-            echo $row['freind_user_name']. " has sent you a friend request <button> Accept </button> <button> Decline </button> <br>";
+            $friend = $row['freind_user_name'];
+            echo $row['freind_user_name']. " has sent you a friend request <a href=\"http://www.accountplusfinance.com/chico/cins370/friendhandler/friendaction.php?user=$user_name&friend=$friend&action=accept\"> accept</a> <a href=\"http://www.accountplusfinance.com/chico/cins370/friendhandler/friendaction.php?user=$user_name&friend=$friend&action=decline\">decline</a> <br>";
         }
     } else{
         echo "<h2>You have no new friend requests, you're all up to date </h2>";

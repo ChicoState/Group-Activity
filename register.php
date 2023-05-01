@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
   $sql = "INSERT INTO USERS (email, first_name, last_name, user_name, p_word, table_created) VALUES ('$e', '$f', '$l', '$u', '$p', '$u')";
     if (mysqli_query($con, $sql)) {
         //echo " Thank you for your message";
-        $ct_new_user = "CREATE TABLE ". $u. "(freind_user_name varchar(30))";
+        $ct_new_user = "CREATE TABLE ". $u. "(freind_user_name varchar(30), f_status varchar(30), event_invite varchar(50), event_status varchar(50))";
         if(mysqli_query($con, $ct_new_user)){
             echo "<h4>Thank you for registering ". $f. " </h4>";
         }

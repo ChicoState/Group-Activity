@@ -246,7 +246,7 @@ body {
             $("#hideFriend").show(1000);
             $("#div1").show(1000);
             var data = document.getElementById("pdata").value;
-        	var url = "sample.php?username=" + data;
+        	var url = "friend-search.php?username=" + data;
 	        $("#div1").load(url);
 	    });
 	    
@@ -260,6 +260,42 @@ body {
 </head>
 
 <body class="container">
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
+
+  <a class="navbar-brand" href="#"><strong>Welcome <?php echo $username; ?> </strong> <span style="display: none;"> Gurpreet Jagpal</span></a>
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+  
+    <ul class="navbar-nav">
+        
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.accountplusfinance.com/chico/cins370/notifications.php">Notifications <span class="badge badge-light"> <?php echo $not_counr; ?> </span> </a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.accountplusfinance.com/chico/cins370/home.php">Home</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.accountplusfinance.com/chico/cins370/friends.php">Friends</a>
+      </li> 
+      
+    <li class="nav-item">
+        <a class="nav-link" href="calendar.html">View Events</a>
+     </li> 
+     
+    <li class="nav-item">
+        <a class="nav-link" href="exit.php">Logout</a>
+     </li> 
+      
+    </ul>
+  </div> 
+  
+</nav>
     <div id="jtron" class="jumbotron">
         <h4> <strong> GROUP ACTIVITY </strong></h4>
     </div>
@@ -267,6 +303,7 @@ body {
     <div>
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
           <button onclick="sidebar_close()" class="w3-bar-item w3-large">Close &times;</button>
+           <a class="btn btn-primary" href="http://www.accountplusfinance.com/chico/cins370/notifications.php"> Notifications <span class="badge badge-light"> <?php echo $not_counr; ?> </span> </a>
           <a href="http://www.accountplusfinance.com/chico/cins370/home.php" class="w3-bar-item w3-button">Home</a>
           <a href="http://www.accountplusfinance.com/chico/cins370/friends.php" class="w3-bar-item w3-button">Friends</a>
           <a href="#" class="w3-bar-item w3-button">Profile</a>
