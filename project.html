@@ -1,181 +1,65 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123745015-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-123745015-1');
-</script>
-
-<!-- JQUERY -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
-<meta name="Owner" content="Gurpreet Jagpal">	
-<meta name="Business" content="Account Plus Finance, subsidiary of Jagpal Holdings Company">
-<meta name="description" content="Market analysis, real estate management, trading, advising, research">
-<meta name="location" content="Yuba City, California">
-<meta name="idea" content="">
-
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
-
-
-
-     <title> Group Activity Project Design</title>
-     
-   
-<meta property="og:title" content="CSCI 430 project design" />
-<meta property="og:description" content="Project preliminary design" />
-<meta property="og:image" content="https://www.msfttechdays.com/wp-content/uploads/2021/07/Software-Development.jpg" />
-
-<!-- twitter cards -->
-<meta property="twitter:card" content="summary_large_image"/>
-<meta name="twitter:site" content="@JagpalHoldingsCompany">
-<meta name="twitter:creator" content="@GurpreetJagpal">
-<meta property="twitter:title" content="CSCI 430 project design"/>
-<meta property="twitter:description" content="design for csci 430 project"/>
-<meta property="twitter:image" content="https://www.msfttechdays.com/wp-content/uploads/2021/07/Software-Development.jpg"/>
-
-<style>
-    .floaterLeft{
-        float: left;
-    }
-    
-
-body {
-  font-family: "Lato", sans-serif;
-}
-
-.btnA{
-	background-color: #3578ad;
-	color: white;
-    padding: 15px; 
-    text-decoration: none;
-    border-radius: 15px;
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
-</style>
-
-<link rel="stylesheet" href="http://www.accountplusfinance.com/css/try.css">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Activity</title>
+    <link rel="stylesheet" href="temp/style.css">
 </head>
 
-<body class="container">
-    <div id="jtron" class="jumbotron">
-        <h4> <strong> Group Activity</strong></h4>
-    </div>
-    
-    <form id="logIn" action = "login.php" method = "post">
-        <p> <input name="uName" id="uName" placeholder="user name" /> </p>
-        <p> <input name="pWord" type="password" placeholder = "password" /> </p>
-       <!-- <input type="submit" class="btnA" placeholder="login" /> -->
-        <button type="submit" class="btnA" name="subBtn">Log In</button>
-    </form>
-    <a href="register.php" class="btnA"> Register </a>
-    
-    <!--
-    <div>
-        <div id="mySidebar" class="sidebar">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
-            <a href="#">Friends</a>
-            <a href="#">Add Friends</a>
-            <a href="#">Create new event</a>
-            <a href="#">Accept/Decline Invitation(s)</a>
+<body>
+    <header>
+        <h2 class="logo">Group Activity</h2>
+    </header>
+
+    <div class="wrapper">
+        <div class="form-box login">
+            <h2>Login</h2>
+            <form action = "login.php" method = "post">
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input name="uName" type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input  name="pWord" type="password" required>
+                    <label>Password</label>
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+                <div class="login-register">
+                    
+                </div>
+            </form>
         </div>
+        <p>Don't have an account? <a href="register.php" class="nada">Register</a></p>
 
-    <div id="main">
-        <h2>Name of our APP here (Group Activity)</h2>
-        <button class="openbtn" onclick="openNav()">☰  Open to Add an Event or respond to an invite </button>  
-        
-        <p></p>
-    </div> 
-</div>  -->
-    
+
+    </div>
     <script>
-function openNav() {
-    $("#jtron").hide(500);
-    $("#logIn").hide(500);
-  document.getElementById("mySidebar").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
-}
+        const wrapper = document.querySelector('.wrapper');
+        const loginLink = document.querySelector('.login-link');
+        const registerLink = document.querySelector('.register-link');
+        const btnPopup = document.querySelector('btnLogin-popup');
 
-function closeNav() {
-    $("#jtron").show(2500);
-    $("#logIn").show(2500);
-  document.getElementById("mySidebar").style.width = "0";
-  document.getElementById("main").style.marginLeft= "0";
-}
-</script>
+        registerLink.addEventListener('click', () => {
+            wrapper.classList.add('active');
+        })
+
+        loginLink.addEventListener('click', () => {
+            wrapper.classList.remove('active');
+        })
+
+        btnPopup.addEventListener('click', () => {
+            wrapper.classList.add('active-popup');
+        })
+
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

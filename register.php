@@ -28,10 +28,10 @@ if ($result->num_rows > 0) {
     $msg = "Sorry that user name is taken, please choose another and try again ";
   //}
 } else {
-  $sql = "INSERT INTO USERS (email, first_name, last_name, user_name, p_word) VALUES ('$e', '$f', '$l', '$u', '$p')";
+  $sql = "INSERT INTO USERS (email, first_name, last_name, user_name, p_word, table_created) VALUES ('$e', '$f', '$l', '$u', '$p', '$u')";
     if (mysqli_query($con, $sql)) {
         //echo " Thank you for your message";
-        $ct_new_user = "CREATE TABLE ". $u. "(freind_user_name varchar(30))";
+        $ct_new_user = "CREATE TABLE ". $u. "(freind_user_name varchar(30), f_status varchar(30), event_invite varchar(50), event_status varchar(50))";
         if(mysqli_query($con, $ct_new_user)){
             echo "<h4>Thank you for registering ". $f. " </h4>";
         }
@@ -76,7 +76,7 @@ $con->close();
 
 
 
-     <title> Group Activity Project Design</title>
+     <title>Register | Group Activity</title>
      
    
 <meta property="og:title" content="CSCI 430 project design" />
@@ -176,17 +176,18 @@ body {
 
 <body class="container">
     <div id="jtron" class="jumbotron">
-        <h4> <strong> Register </strong></h4>
+        <h4 class="text-center"> <strong> Register </strong></h4>
     </div>
     
     <div id="main">
         <form method = "post" action = "register.php">
-          <p> <input type = "text" name = "fName" id="fName" placeholder="Enter first name" /> </p>
-          <p> <input type = "text" name = "lName" id="lName" placeholder="Enter last name" /> </p>
-          <p><input type = "text" name = "uName" id="uName" placeholder="Pick a username" /> </p>
-          <p> <input type = "password" name="pWord" placeholder = "enter password" /> </p>
-          <p><input type = "text" name = "eMail" id="eMail" placeholder="enter email" /> </p>
-          <input name ="btnSubmit" type="submit" class="btnA" placeholder="Register"></input>
+          <p> <input type = "text" name = "fName" id="fName" placeholder="Enter first name" style="width: 50%; border-radius: 25px;" /> </p>
+          <p> <input type = "text" name = "lName" id="lName" placeholder="Enter last name" style="width: 50%; border-radius: 25px;" /> </p>
+          <p><input type = "text" name = "uName" id="uName" placeholder="Pick a username" style="width: 50%; border-radius: 25px;" /> </p>
+          <p> <input type = "password" name="pWord" placeholder = "enter password" style="width: 50%; border-radius: 25px;" /> </p>
+          <p><input type = "text" name = "eMail" id="eMail" placeholder="enter email" style="width: 50%; border-radius: 25px;" /> </p>
+          <input name ="btnSubmit" type="submit" class="btnA" value="Register" />
+          <button class="btnA"> <a href ="project.html" style="color: white;">Go Back to Homepage</a></button>
         </form>
     </div> 
     
@@ -196,9 +197,6 @@ body {
         }
     ?>
     
-    <div class="girdContainer">
-        <div> <button> <a href ="project.html">Go Back</a></button></div>
-    </div>
 
 </body>
 
