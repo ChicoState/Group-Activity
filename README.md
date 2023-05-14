@@ -16,6 +16,7 @@
 ## Testing
 - using Selenium with chromedriver
 - python automated testing
-Invoked by the command: python3 -m pytest
+
+Invoked by the command: python3 -m pytest:
 ![tests](https://github.com/ChicoState/Group-Activity/assets/89611484/438ffff4-f010-4256-acee-9a6bbea47952)
 
