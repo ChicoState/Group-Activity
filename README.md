@@ -11,3 +11,10 @@
 - Sage Becker
 - Jorge Castaneda
 - Gurpreet Jagpal
+
+## Website URL
+- http://www.accountplusfinance.com/chico/cins370/project.html
+
+## Testing
+- using Selenium with chromedriver
+- python automated testing
