@@ -246,7 +246,10 @@ body {
             $("#hideFriend").show(1000);
             $("#div1").show(1000);
             var data = document.getElementById("pdata").value;
-        	var url = "friend-search.php?username=" + data;
+          
+            var url = "friend-search.php?username=" + data;
+          
+          
 	        $("#div1").load(url);
 	    });
 	    
