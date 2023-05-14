@@ -1,4 +1,4 @@
-[GITHUB-BADGE](https://github.com/ChicoState/Group-Activity/blob/main/.github/workflows/php.yml/badge.svg)
+[![PHP Composer](https://github.com/ChicoState/Group-Activity/actions/workflows/php.yml/badge.svg)](https://github.com/ChicoState/Group-Activity/actions/workflows/php.yml)
 
 # Group-Activity
 
