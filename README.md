@@ -1,3 +1,5 @@
+[GITHUB-BADGE](https://github.com/ChicoState/Group-Activity/blob/main/.github/workflows/php.yml/badge.svg)
+
 # Group-Activity
 
 ## Team Members
