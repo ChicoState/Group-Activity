@@ -24,7 +24,8 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="home.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
@@ -47,82 +48,30 @@
 <meta property="twitter:description" content="design for csci 430 project"/>
 <meta property="twitter:image" content="https://www.msfttechdays.com/wp-content/uploads/2021/07/Software-Development.jpg"/>
 
-<style>
-    .floaterLeft{
-        float: left;
-    }
-    
-
-body {
-  font-family: "Lato", sans-serif;
-}
-
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
-}
-
-.sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar a:hover {
-  color: #f1f1f1;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-.openbtn {
-  font-size: 20px;
-  cursor: pointer;
-  background-color: #111;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 30px;
-}
-
-.openbtn:hover {
-  background-color: #444;
-}
-
-#main {
-  transition: margin-left .5s;
-  padding: 16px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-
-</style>
-
 <link rel="stylesheet" href="http://www.accountplusfinance.com/css/try.css">
 
 </head>
 
 <body class="container">
+  <div id="banner">
+    <img src="bg2.jpg" alt="Banner Image">
+    <div class="btn-container">
+      <!-- <button>Edit</button> -->
+      <a id="button" href="">
+        <span class="icon"><ion-icon name="create-outline"></ion-icon></span>
+      </a>
+    </div>
+
+    <!-- <div class="container">
+      <label for="file-upload">
+        <button>
+          <img src="camera.png" alt="Camera icon">
+        </button>
+      </label>
+      <input id="file-upload" type="file" style="display: none;">
+    </div> -->
+
+  </div>
     <div id="jtron" class="jumbotron">
         <h4> <strong> CSCI 430 Potential Project Design</strong></h4>
     </div>
@@ -137,7 +86,7 @@ body {
         </div>
 
     <div id="main">
-        <h2>Name of our APP here (Group Activity)</h2>
+        <h2>Group Activity</h2>
         <button class="openbtn" onclick="openNav()">☰  Open to Add an Event or respond to an invite </button>  
         
         <p></p>
@@ -156,7 +105,25 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main").style.marginLeft= "0";
 }
+
+const fileUpload = document.getElementById("file-upload");
+const buttonImage = document.querySelector("button img");
+
+fileUpload.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  const reader = new FileReader();
+
+  reader.addEventListener("load", () => {
+    buttonImage.src = reader.result;
+  });
+
+  if (file) {
+    reader.readAsDataURL(file);
+  }
+});
 </script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>

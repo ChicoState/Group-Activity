@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Inter', sans-serif; */
+    font-family: 'Alkatra', cursive;
+    /* background-color: rgb(211, 219, 216); */
+}
+
+.floaterLeft{
+    float: left;
+}
+
+body {
+font-family: "Lato", sans-serif;
+}
+
+.sidebar {
+height: 100%;
+width: 0;
+position: fixed;
+z-index: 1;
+top: 0;
+left: 0;
+background-color: #162938;
+overflow-x: hidden;
+transition: 0.5s;
+padding-top: 60px;
+/* 
+ */
+ margin-top: 249;
+ /* text-shadow: 
+    -1px -1px 0 #0c0c0c,  
+    1px -1px 0 #cbc4c4,
+    -1px 1px 0 #e3d9d9,
+    1px 1px 0 #000000; */
+/* background: transparent; */
+border-left: 0;
+border-right: 1px solid rgba(255, 255, 255, .5);
+
+/* border: 1px solid rgba(255, 255, 255, .5); */
+border-radius: 20px;
+border-top-left-radius: 0;
+backdrop-filter: blur(10px);
+box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+}
+
+.sidebar a {
+padding: 8px 8px 8px 32px;
+text-decoration: none;
+font-size: 25px;
+color: #1e7ba3;
+display: block;
+transition: 0.3s;
+}
+
+.sidebar a:hover {
+color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+
+}
+
+.openbtn {
+font-size: 20px;
+cursor: pointer;
+background-color: #162938;
+color: white;
+padding: 10px 15px;
+border: none;
+border-radius: 30px;
+}
+
+.openbtn:hover {
+background-color: #162938;
+}
+
+#main {
+transition: margin-left .5s;
+padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+/* .sidebar {padding-top: 15px;} */
+.sidebar {padding-top: 0px;}
+.sidebar a {font-size: 18px;}
+}
+
+#banner {
+    width: 100%; /*Set the width of the div to 100% */
+    height: auto; /* Set the height of the div to auto so it adjusts based on the image */
+    max-width: auto; /* Set a maximum width for the image */
+    margin: 0 auto; /* Center the div horizontally */
+  }
+  
+#banner img {
+    width: 100%; /* Set the width of the image to 100% */
+    height: auto; /* Set the height of the image to auto so it adjusts based on the width */
+    display: block; /* Remove any extra space below the image */
+    max-height:250px;
+}
+.btn-container {
+    position: relative;
+    background-color: transparent;
+}
+.btn-container a {
+ background-color: transparent;
+}
+
+.icon {
+    margin-bottom: 10;
+    margin-right: 10;
+    font-size: 1.9em;
+    color: rgb(54, 132, 210);
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    /* transition: transform 0.2s ease-in-out; */
+}
+.icon:hover {
+    transform: scale(1.2);
+  }
