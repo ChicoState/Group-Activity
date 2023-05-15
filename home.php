@@ -69,9 +69,7 @@ $result = mysqli_query($con, $sql_noti);
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <!-- in house javascript -->
-
 <script type="text/javascript" src="scriptjs/jq.js"> </script>
-
 
 
      <title> Group Activity Project Design</title>
@@ -94,7 +92,6 @@ $result = mysqli_query($con, $sql_noti);
 </head>
 
 <body class="container">
-
         <nav class="navbar navbar-expand-md bg-dark navbar-dark" >
 
   <a class="navbar-brand" href="#"><strong>Welcome <?php echo $username; ?> </strong> <span style="display: none;"> Gurpreet Jagpal</span></a>
@@ -131,7 +128,6 @@ $result = mysqli_query($con, $sql_noti);
   </div> 
   
 </nav>
-
     <h2 class="text-center"> <strong>Welcome <?php echo $username; ?> </strong> </h2>
     <div id="jtron" class="jumbotron">
         <h4> <strong> GROUP ACTIVITY </strong></h4>
@@ -146,7 +142,6 @@ $result = mysqli_query($con, $sql_noti);
     <div>
         <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
           <button onclick="sidebar_close()" class="w3-bar-item w3-large">Close &times;</button>
-
           <a class="btn btn-primary" href="http://www.accountplusfinance.com/chico/cins370/notifications.php"> Notifications <span class="badge badge-light"> <?php echo $not_counr; ?> </span> </a>
           <a href="http://www.accountplusfinance.com/chico/cins370/home.php" class="w3-bar-item w3-button">Home</a>
           <a href="http://www.accountplusfinance.com/chico/cins370/friends.php" class="w3-bar-item w3-button" >Friends</a>

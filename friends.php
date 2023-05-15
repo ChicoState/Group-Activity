@@ -246,10 +246,7 @@ body {
             $("#hideFriend").show(1000);
             $("#div1").show(1000);
             var data = document.getElementById("pdata").value;
-          
-            var url = "friend-search.php?username=" + data;
-          
-          
+        	var url = "friend-search.php?username=" + data;
 	        $("#div1").load(url);
 	    });
 	    
@@ -288,7 +285,7 @@ body {
       </li> 
       
     <li class="nav-item">
-        <a class="nav-link" href="calendar.html">View Events</a>
+        <a class="nav-link" href="events/start.php">View Events</a>
      </li> 
      
     <li class="nav-item">
@@ -310,7 +307,7 @@ body {
           <a href="http://www.accountplusfinance.com/chico/cins370/home.php" class="w3-bar-item w3-button">Home</a>
           <a href="http://www.accountplusfinance.com/chico/cins370/friends.php" class="w3-bar-item w3-button">Friends</a>
           <a href="#" class="w3-bar-item w3-button">Profile</a>
-          <a href="calendar.html" class="w3-bar-item w3-button">View events</a>
+          <a href="events/display_events.php" class="w3-bar-item w3-button">View events</a>
           <a href="exit.php" class="w3-bar-item w3-button">Logout</a>
         </div>
 
@@ -319,7 +316,7 @@ body {
 
         <h4 class="text-center">Your Current Friends</h4>
         <?php
-            $view_friend = "SELECT freind_user_name from $uname where f_status = 'accepted' ";
+            $view_friend = "SELECT distinct freind_user_name from $uname where f_status = 'accepted' ";
         $results = $con->query($view_friend);
         if ($results->num_rows > 0) {
             echo "<div class=\"rounded\"> <ul>";
